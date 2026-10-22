@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SahidanGuard - Sistem Mutasi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section id="loginPage" class="page login-page">
+      <div class="login-card">
+        <div class="brand-mark">SG</div>
+        <h1>SahidanGuard</h1>
+        <p class="muted">Sistem Mutasi</p>
+        <form id="loginForm" class="form-stack">
+          <label for="username">Username</label>
+          <input id="username" type="text" required placeholder="Masukkan username" />
+          <label for="password">Password</label>
+          <input id="password" type="password" required placeholder="Masukkan password" />
+          <button class="btn primary" type="submit">Login</button>
+          <p class="hint">By: <b>Windy</b></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboardPage" class="page hidden">
+      <header class="topbar">
+        <div><div class="eyebrow">SahidanGuard</div><h1>Sistem Mutasi</h1></div>
+        <div class="topbar-actions"><span id="loggedUser" class="user-pill"></span><button id="logoutBtn" class="btn outline">Keluar</button></div>
+      </header>
+      <nav class="tabs" aria-label="Menu utama">
+        <button class="tab active" data-view="dailyView">Mutasi Harian</button>
+        <button class="tab" data-view="vehicleView">Mutasi Kendaraan</button>
+        <button class="tab" data-view="recordsView">Lihat Mutasi</button>
+        <button class="tab" data-view="searchView">Cari</button>
+      </nav>
+
+      <section id="dailyView" class="content-view">
+        <div class="section-heading"><div><h2>Mutasi Harian</h2><p>Isi catatan kegiatan secara manual.</p></div><span id="dailyDateBadge" class="date-badge"></span></div>
+        <form id="dailyForm" class="panel form-grid">
+          <div class="field full"><label for="dailyDate">Tanggal</label><input id="dailyDate" type="date" required /></div>
+          <div class="field"><label for="dailyShift">Shift</label><select id="dailyShift" required><option value="">Pilih shift</option><option>PAGI</option><option>SIANG</option><option>MALAM</option></select></div>
+          <div class="field"><label for="dailyOfficer">Petugas jaga</label><input id="dailyOfficer" required placeholder="Nama petugas" /></div>
+          <div class="field full"><label for="dailyNote">Catatan mutasi harian</label><textarea id="dailyNote" rows="7" required placeholder="Tuliskan catatan..."></textarea></div>
+          <div class="field full"><label for="dailyPhoto">Dokumentasi foto (maksimal 2)</label><input id="dailyPhoto" type="file" accept="image/*" multiple /><small class="hint">Pilih paling banyak 2 foto.</small></div>
+          <div class="form-actions full"><button class="btn primary" type="submit">Submit & Simpan</button><button class="btn secondary" type="reset">Reset</button></div>
+        </form>
+      </section>
+
+      <section id="vehicleView" class="content-view hidden">
+        <div class="section-heading"><div><h2>Mutasi Kendaraan</h2><p>Catat kendaraan keluar dan masuk.</p></div></div>
+        <form id="vehicleForm" class="panel form-grid">
+          <div class="field full"><label for="vehicleDate">Tanggal</label><input id="vehicleDate" type="date" required /></div>
+          <div class="field"><label for="vehicleUnit">Unit / Nomor kendaraan</label><input id="vehicleUnit" required placeholder="Contoh: B 1234 XYZ" /></div>
+          <div class="field"><label for="vehicleDriver">Driver / Penanggung jawab</label><input id="vehicleDriver" required placeholder="Nama driver" /></div>
+          <div class="field"><label for="outTime">Jam keluar</label><input id="outTime" type="time" /></div>
+          <div class="field"><label for="inTime">Jam masuk</label><input id="inTime" type="time" /></div>
+          <div class="field"><label for="outKm">KM keluar</label><input id="outKm" type="number" min="0" /></div>
+          <div class="field"><label for="inKm">KM masuk</label><input id="inKm" type="number" min="0" /></div>
+          <div class="field full"><label for="vehicleNote">Keterangan</label><textarea id="vehicleNote" rows="4" placeholder="Tujuan atau catatan lainnya"></textarea></div>
+          <div class="field full"><label for="vehiclePhoto">Dokumentasi foto (maksimal 2)</label><input id="vehiclePhoto" type="file" accept="image/*" multiple /><small class="hint">Pilih paling banyak 2 foto.</small></div>
+          <div class="form-actions full"><button class="btn primary" type="submit">Submit & Simpan</button><button class="btn secondary" type="reset">Reset</button></div>
+        </form>
+      </section>
+
+      <section id="recordsView" class="content-view hidden">
+        <div class="section-heading"><div><h2>Lihat Mutasi</h2><p>Catatan tersimpan berdasarkan tanggal.</p></div><button id="closeRecordsBtn" class="btn outline">Close</button></div>
+        <div id="recordsContainer" class="records-list"></div>
+      </section>
+
+      <section id="searchView" class="content-view hidden">
+        <div class="section-heading"><div><h2>Cari Mutasi</h2><p>Pilih tanggal untuk melihat catatan hari tersebut.</p></div></div>
+        <form id="searchForm" class="panel search-form"><label for="searchDate">Tanggal yang dicari</label><div class="search-row"><input id="searchDate" type="date" required /><button class="btn primary" type="submit">Cari</button></div></form>
+        <div id="searchResult" class="records-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="photoModal" class="photo-modal hidden" role="dialog" aria-modal="true" aria-label="Dokumentasi foto">
+    <div class="photo-modal-inner"><button id="closePhotoBtn" class="photo-close" type="button">Close</button><div id="modalPhotos" class="modal-photos"></div></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

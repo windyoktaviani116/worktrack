@@ -1,0 +1,552 @@
+:root {
+    --navy: #132238;
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #1c2938;
+    --muted: #6d7b8d;
+    --line: #dce4ee;
+    --accent: #2d73d5;
+    --danger: #c0392b;
+    --shadow: 0 12px 32px rgba(19, 34, 56, 0.09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.page {
+    width: 100%;
+}
+
+/* LOGIN */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #102039, #294c73);
+}
+
+.login-card {
+    width: min(420px, 100%);
+    padding: 38px;
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.brand-mark {
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 15px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    color: white;
+    background: var(--navy);
+    font-weight: 800;
+    font-size: 24px;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: clamp(23px, 4vw, 32px);
+}
+
+h2 {
+    margin-bottom: 6px;
+    font-size: 24px;
+}
+
+.muted,
+.section-heading p,
+.hint {
+    color: var(--muted);
+}
+
+.hint {
+    font-size: 12px;
+    margin: 0;
+}
+
+.form-stack {
+    display: grid;
+    gap: 10px;
+    margin-top: 28px;
+    text-align: left;
+}
+
+/* INPUT DAN FORM */
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 13px;
+    background: white;
+    color: var(--text);
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45, 115, 213, 0.12);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* TOMBOL */
+
+.btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 11px 17px;
+    font-weight: 700;
+    transition: filter 0.2s;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn.secondary {
+    background: #e9eef5;
+    color: var(--navy);
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--navy);
+}
+
+.btn.danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn.small {
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.btn:hover {
+    filter: brightness(0.97);
+}
+
+/* HEADER */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 28px clamp(18px, 5vw, 70px);
+    background: var(--navy);
+    color: white;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: clamp(21px, 3vw, 30px);
+}
+
+.eyebrow {
+    letter-spacing: 2px;
+    font-size: 11px;
+    opacity: 0.7;
+    margin-bottom: 7px;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.user-pill {
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 13px;
+}
+
+.topbar .btn.outline {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* NAVIGASI */
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 16px clamp(18px, 5vw, 70px);
+    background: white;
+    border-bottom: 1px solid var(--line);
+}
+
+.tab {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.tab.active {
+    background: #e9f1fd;
+    color: var(--accent);
+}
+
+/* KONTEN */
+
+.content-view {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 30px clamp(18px, 5vw, 70px) 50px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.section-heading p {
+    margin-bottom: 0;
+}
+
+.date-badge {
+    background: #eaf2ff;
+    color: var(--accent);
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: clamp(18px, 4vw, 30px);
+    box-shadow: var(--shadow);
+}
+
+/* FORM GRID */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.field.full,
+.form-actions.full {
+    grid-column: 1 / -1;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* PENCARIAN */
+
+.search-form {
+    max-width: 650px;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+.search-row input {
+    flex: 1;
+}
+
+/* DAFTAR MUTASI */
+
+.records-list {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+}
+
+/* KARTU TANGGAL */
+
+.record-day {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.record-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #edf3fa;
+    border-bottom: 1px solid var(--line);
+}
+
+/* ISI KARTU MUTASI */
+
+.record-body {
+    padding: 12px 14px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    min-width: 0;
+}
+
+/* SETIAP CATATAN MUTASI */
+
+.record-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 0;
+    height: auto;
+    align-self: start;
+}
+
+.record-item h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* INFORMASI SHIFT DAN PETUGAS */
+
+.record-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 8px;
+}
+
+.meta {
+    display: inline-block;
+    background: #f0f4f8;
+    color: #526276;
+    border-radius: 7px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+/* CATATAN KEGIATAN */
+
+.record-note {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/* TOMBOL EDIT, HAPUS, LIHAT FOTO */
+
+.record-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* JUMLAH FOTO */
+
+.photo-count {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* DATA KOSONG */
+
+.empty {
+    padding: 24px;
+    text-align: center;
+    background: white;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    color: var(--muted);
+}
+
+/* MODAL FOTO */
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.86);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    z-index: 50;
+}
+
+.photo-modal-inner {
+    position: relative;
+    max-width: min(900px, 100%);
+    max-height: 90vh;
+}
+
+.photo-modal img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.photo-close {
+    position: absolute;
+    right: 0;
+    top: -48px;
+    background: white;
+    color: #132238;
+    border: 0;
+    border-radius: 9px;
+    padding: 10px 16px;
+    font-weight: 700;
+}
+
+/* GALERI FOTO */
+
+.modal-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    max-width: 95vw;
+    max-height: 85vh;
+    overflow: auto;
+    padding: 12px;
+}
+
+.modal-photos img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 10px;
+    background: white;
+}
+
+/* RESPONSIVE: HP DAN TABLET */
+
+@media (max-width: 650px) {
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full,
+    .form-actions.full {
+        grid-column: auto;
+    }
+
+    .section-heading {
+        flex-direction: column;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+
+    .tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .tab {
+        white-space: nowrap;
+    }
+
+    .record-day-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .record-body {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .record-item {
+        padding: 10px;
+    }
+
+    .record-actions {
+        margin-top: 8px;
+    }
+}
